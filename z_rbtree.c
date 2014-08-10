@@ -1,20 +1,3 @@
-/**
-     BUGS:
-	      BUG 1: rb_insert_fixup 原参数1 node* 导致修改根结点时修改的是副本的值而未改变真正的根的值
-		  FIXED: rb_insert_fixup(node*, node*)   ----->   rb_insert_fixup(node**, node*)
-		         rb_delete_fixup(node*, node*)   ----->   rb_delete_fixup(node**, node*)
-				 
-		  BUG 2: rb_right_rotate 缺失 y->parent = x->parent 语句
-		  FIXED: 加入 y->parent = x->parent;
-          
-		  BUG 3: rb_delete 中在真正删除的不是欲删除的结点时交换时交换了两者的地址而非值
-          FIXED: 将交换地址重新改为交换值
-		  
-		  BUG 4: rb_delete 中在查找真正删除的结点时 在为q赋值时 付给了根的地址 
-		  FIXED: 将q的值改为欲删除结点的右边孩子的值
-**/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
